@@ -41,7 +41,7 @@ export class MovieService {
     const params = { ...this.getParams(), page: '1', query: texto };
     return this.http
       .get<CarteleraResponse>(`${this.apiUrl}/search`, { params })
-      .pipe(map((resp) => resp.results));
+      .pipe(map((resp: { results: any; }) => resp.results));
   } 
 
   getPeliculaDetalle(id: string): Observable<MovieResponse> {
